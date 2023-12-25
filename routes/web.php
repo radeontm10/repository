@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RepositoryController;
+use App\Models\User;
 use Illuminate\Support\Facades\auth;
 use Illuminate\Support\Facades\Route;
 
@@ -19,29 +20,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::get('user', [UserController::class, 'index'])->name('user');
-// Route::post('user', [UserController::class, 'index'])->name('user');
-// Route::get('user', [UserController::class, 'index'])->name('user.index');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('repository', RepositoryController::class)->middleware('auth');
+Route::resource('user', UserController::class)->middleware(['auth', 'can:isAdmin']);
 
-// Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
-// Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
-// Route::get('/user/{id}/show', [UserController::class, 'show'])->name('user.show');
-// Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
-// Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update');
-// // Route::get('/user/{id}/delete', [UserController::class, 'destroy'])->name('user.delete');
-// Route::delete('/user/{id}/delete', [UserController::class, 'destroy'])->name('user.delete');
-
-// Route::head('/user/{id}/delete', [UserController::class, 'destroy'])->name('user.delete');
-
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::resource('repository', RepositoryController::class);
 

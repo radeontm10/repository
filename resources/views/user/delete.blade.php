@@ -22,7 +22,7 @@
             <div class="col-md-12">
                 <h1>Konfirmasi Hapus Pengguna</h1>
                 <p>Anda yakin ingin menghapus pengguna ini?</p>
-                <form action="{{ route('user.delete', $user['id']) }}" method="POST">
+                <form action="{{ route('user.destory', $users['id']) }}" method="POST">
                     {{-- <form method="POST" action="{{ route('user.delete', ['id' => $userId]) }}"> --}}
                     @csrf
                     @method('DELETE')

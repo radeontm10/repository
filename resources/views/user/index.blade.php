@@ -74,7 +74,7 @@
                                 <td>
                                     <a href="{{ route('user.show', $user['id']) }}" class="btn btn-primary">Lihat</a>
                                     <a href="{{ route('user.edit', $user['id']) }}" class="btn btn-warning">Edit</a>
-                                    <form action="{{ route('user.delete', $user['id']) }}" method="POST" style="display: inline-block;">
+                                    <form action="{{ route('user.destroy', $user['id']) }}" method="POST" style="display: inline-block;">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Hapus</button>

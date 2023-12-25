@@ -76,16 +76,16 @@
         <div class="row">
             <div class="col-md-12">
                 <h1>Edit Pengguna</h1>
-                <form action="{{ route('user.update', $user['id']) }}" method="POST">
+                <form action="{{ route('user.update', $users['id']) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
                         <label for="name">Nama</label>
-                        <input type="text" class="form-control" id="name" name="name" value="{{ $user['name'] }}" required>
+                        <input type="text" class="form-control" id="name" name="name" value="{{ $users['name'] }}" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" value="{{ $user['email'] }}" required>
+                        <input type="email" class="form-control" id="email" name="email" value="{{ $users['email'] }}" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
