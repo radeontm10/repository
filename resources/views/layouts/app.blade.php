@@ -42,7 +42,7 @@
                         </li>   
                         @endif
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Repository Baru</a>
+                            <a href="{{ route('myrepo') }}" class="nav-link">Repository Saya</a>
                         </li>
 
                     </ul>

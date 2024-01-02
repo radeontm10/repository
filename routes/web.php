@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MyRepositoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RepositoryController;
 use App\Models\User;
@@ -29,5 +30,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('repository', RepositoryController::class)->middleware('auth');
 Route::resource('user', UserController::class)->middleware(['auth', 'can:isAdmin']);
+Route::get('/myrepositories', [MyRepositoryController::class, 'index'])->name('myrepo');
 
 
